@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700&subset=latin-ext');
+
+:root {
+  /*COLORS*/
+  --main-bg-color: #F7F2EE;
+
+  --primary-color: #75971A;
+
+  --main-text-color: #000;
+
+  /*FONT*/
+  --main-font-family: 'Merriweather', serif;
+  /*UI*/
+  --border-radius: 5px;
+
+  /*BUTTONS*/
+  --btn-padding: 20px;
+}
+
+
+
+body {
+  font-family: var(--main-font-family);
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  padding:0;
+  margin: 0;
+}
+
+/*Loading */
+@import 'app/shared/loading/loading.component.css';
