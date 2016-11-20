@@ -1,0 +1,15 @@
+<div *ngFor="let book of books |
+     filterBooksCategory:'Fiction' |
+     filterBooksGenre:'History' |
+     filterBooksSearch:books:'':true |
+     filterBooksCount:filteredCount
+">
+
+
+  {{book.name}}
+</div>
+<app-loading *ngIf="filteredCount?.count === -1"></app-loading>
+<div *ngIf="filteredCount?.count === 0" class="no-result">
+  No results!
+</div>
+<div>count: {{filteredCount?.count}}</div>

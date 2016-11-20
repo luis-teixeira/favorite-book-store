@@ -1,0 +1,9 @@
+.no-result {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  padding: var(--padding);
+  margin: 20px auto;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+}

@@ -3,28 +3,27 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {routing, appRoutingProviders} from "./app.routing";
-
 import { AppComponent } from './app.component';
-import { LoadingComponent } from "./shared/loading/loading.component";
+import { AppRoutingModule } from "./app-routing.module";
 import { PageLandingComponent } from './landing-page/page-landing.component';
-import { UiHeaderComponent } from './shared/ui-header/ui-header.component';
+import { SharedModule } from "./shared/shared.module";
+import { BooksModule } from "./books/books.module";
+
+// import {BooksModule} from "./books/books.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoadingComponent,
-    PageLandingComponent,
-    UiHeaderComponent,
-  ],
+
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,
+    SharedModule,
+    BooksModule,
+    AppRoutingModule
   ],
-  providers: [
-    appRoutingProviders
+  declarations: [
+    AppComponent,
+    PageLandingComponent,
   ],
   bootstrap: [AppComponent]
 })
