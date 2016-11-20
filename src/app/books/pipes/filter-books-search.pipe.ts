@@ -11,19 +11,18 @@ export class FilterBooksSearchPipe implements PipeTransform {
    * @param {Array} allBooks - represents all books array without filter
    * @param {String} query - represents a string to be found in a bookarray
    * @param {Boolean} all - true to use allbooks<Array>, false to use books<Array>
+   * return {array} books - Return the book<Array> filtered
    */
   transform(books: Array<any>, allBooks?: Array<any>, query?: string, all?: boolean): any {
 
-    if (!allBooks) return null;
-
-    const allBooks = allBooks;
-    const query = query;
-    const all = all;
-
+    if (!allBooks) return [];
     if(query === '') return books;
+
+    const lowerQuery = query.toLocaleLowerCase();
+
     return all
-      ? allBooks.filter( b => b.name.indexOf(query) != -1 || b.author['name'].indexOf(query) != -1)
-      : books.filter( b => b.name.indexOf(query) != -1 || b.author['name'].indexOf(query) != -1);
+      ? allBooks.filter( b => b.name.toLowerCase().indexOf(lowerQuery) != -1 || b.author['name'].toLowerCase().indexOf(lowerQuery) != -1)
+      : books.filter( b => b.name.toLowerCase().indexOf(lowerQuery) != -1 || b.author['name'].toLowerCase().indexOf(lowerQuery) != -1);
   }
 
 }

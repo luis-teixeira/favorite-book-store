@@ -1,3 +1,29 @@
+.book-list {
+  margin: 50px 0;
+}
+
+.box {
+  background-color: var(--main-bg-color);
+  border-radius: var(--border-radius);
+  /*border: 1px solid var(--main-text-color);*/
+  border: 1px solid #eaeaea;
+  margin-bottom: 30px;
+  padding: var(--padding);
+}
+
+small {
+  color: var(--primary-color);
+}
+
+.img-holder {
+  height: 300px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: #fff;
+  background-position: center;
+  background-size: cover;
+}
+
 .no-result {
   color: #8a6d3b;
   background-color: #fcf8e3;

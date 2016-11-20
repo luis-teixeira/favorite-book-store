@@ -1,15 +1,43 @@
-<div *ngFor="let book of books |
-     filterBooksCategory:'Fiction' |
-     filterBooksGenre:'History' |
-     filterBooksSearch:books:'':true |
-     filterBooksCount:filteredCount
-">
 
+<app-book-filter-bar *ngIf="books"
+                     [listCategories]="listCategories"
+                     [listGenre]="listGenre"
+                     (onChangedCategories)="onChangedCategories($event)"
+                     (onChangedGenre)="onChangedGenres($event)"
+                     (onChangedQuery)="onChangedQueryBook($event)"
+                     (onChangedLibrary)="onChangedLibrarySearch($event)"
+></app-book-filter-bar>
+<div class="book-list row">
+  <div class="col-sm-4" *ngFor="let book of books |
+       filterBooksCategory:selectedCategories  |
+       filterBooksGenre:selectedGenre |
+       filterBooksSearch:books:queryBooks:searchInAllBook |
+       filterBooksCount:filteredCount
+  ">
+    <div class="box">
 
-  {{book.name}}
+      <div class="info-box">
+        <div class="img-holder" [ngStyle]="{ 'background-image': 'url('+ book.cover +'?v='+random()+')'}"></div>
+        <h3>
+          {{book.name}}<br>
+          <small>by {{book.author['name']}}</small>
+        </h3>
+        <div class="clearfix">
+          <div class="likes pull-left">
+            <img src="assets/like.svg" alt="" width="16px" height="16px"> {{book.likes}}
+          </div>
+
+          <div class="likes pull-right">
+           {{book.published}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 <app-loading *ngIf="filteredCount?.count === -1"></app-loading>
 <div *ngIf="filteredCount?.count === 0" class="no-result">
   No results!
 </div>
-<div>count: {{filteredCount?.count}}</div>
+<div class="hidden">count: {{filteredCount?.count}} {{selectedCategories}} {{selectedGenre}}</div>

@@ -40,5 +40,67 @@ body {
   min-height: 200px;
 }
 
+/*FORMS*/
+.select-styled {
+  padding: var(--padding);
+  border: 1px solid #e6e6e6;
+  font-size: 16px;
+  height: 34px;
+  width: 100%;
+  background-color: #fff;
+
+}
+
+.form-control {
+  position: relative;
+}
+
+.input-text-styled {
+  font-family: var(--main-font-family);
+
+  border: 1px solid #e6e6e6;
+  font-size: 16px;
+  height: 30px;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: var(--border-radius);
+  position: relative;
+
+}
+.input-ico-right {
+  font-family: var(--main-font-family);
+
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 7px;
+  right: -10px;
+}
+
+
+/* AUX */
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
 /*Loading */
 @import 'app/shared/loading/loading.component.css';
