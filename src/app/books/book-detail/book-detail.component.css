@@ -1,0 +1,30 @@
+.book-detail--description {
+  text-align: left;
+  font-size: 1.8rem;
+  padding: 10px 20px;
+  margin: 40px 0 ;
+  font-size: 17.5px;
+  border-left: 5px solid #eee;
+}
+
+.book-detail--intro {
+  text-align: left;
+}
+
+.book-detail--similar {
+  margin-bottom: 50px;
+}
+
+.book-detail--description-data {
+  margin-top: 10px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  padding: 0;
+  margin: 50px auto;
+  width: 20%;
+}

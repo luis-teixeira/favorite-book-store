@@ -12,6 +12,8 @@ import { FilterBooksCountPipe } from './pipes/filter-books-count.pipe';
 import { FilterBooksSearchPipe } from './pipes/filter-books-search.pipe';
 import { BookFilterBarComponent } from './book-filter-bar/book-filter-bar.component';
 import { FilterListGenreByPipe } from './pipes/filter-list-genre-by.pipe';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { FilterDateMomentPipe } from './pipes/filter-date-moment.pipe';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import { FilterListGenreByPipe } from './pipes/filter-list-genre-by.pipe';
     FilterBooksGenrePipe,
     FilterBooksCountPipe,
     FilterBooksSearchPipe,
-    FilterListGenreByPipe
+    FilterListGenreByPipe,
+    BookDetailComponent,
+    FilterDateMomentPipe
   ],
   providers: [
     BookService,

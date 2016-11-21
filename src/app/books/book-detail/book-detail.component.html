@@ -1,0 +1,85 @@
+
+<app-ui-header
+  [bgImgUrl]="book?.cover"
+  [label]="book?.name"
+  [subLabel]="'by '+ book?.author.name"
+  [overlay]="true">
+</app-ui-header>
+
+<div class="book-detail container main-container">
+  <a class="primary no-underline" [routerLink]="'/'">back to list</a>
+  <div class="row center-xs">
+    <div class="col-xs-6">
+      <div class="box">
+        <blockquote class="book-detail--description">
+          <p>{{book?.description}}</p>
+          <div class="book-detail--description-data">
+            <small>Categories:</small><br>
+            <small class="color-primary"> {{book?.genre.category}}, {{book?.genre.name}} </small><br>
+          </div>
+          <div class="book-detail--description-data">
+            <small>Published:</small><br>
+            <small class="color-primary"> {{book?.published | filterDateMoment:'from' }} </small>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="row center-xs">
+    <div class="col-xs-8">
+      <div class="box book-detail--intro">
+        <h3>Introduction</h3>
+        <p *ngFor="let p of book?.introduction"> {{p.content}}</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row center-xs">
+    <div class="col-xs-8">
+      <div class="box book-detail--author">
+        <img class="img-rounded" src="{{book?.author.avatar}}" alt="" width="100px" height="100px">
+        <h4 >Written by <span class="color-primary">{{book?.author.name}}</span></h4>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="book-detail container secondary-container">
+
+  <div class="row center-xs">
+    <div class="col-xs-8">
+      <div class="box book-detail--similar">
+        <h3>Similar Reading</h3>
+        <p> If you like this book, we recommend you check theses emerging titles</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let book of similarBooks">
+      <div class="box book-list--card">
+        <div class="box" (click)="onSelect(book)">
+
+          <div class="info-box">
+            <div class="img-holder" [ngStyle]="{ 'background-image': 'url('+ book.cover +'?v='+random()+')'}"></div>
+            <h3>
+              {{book.name}}<br>
+              <small>by {{book.author['name']}}</small>
+            </h3>
+            <div class="clearfix">
+              <div class="likes pull-left">
+                <img src="assets/like.svg" alt="" width="16px" height="16px"> {{book.likes}}
+              </div>
+
+              <div class="likes pull-right">
+                {{book.published | filterDateMoment:'from' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

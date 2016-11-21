@@ -32,12 +32,36 @@ body {
   margin: 0;
 }
 
-.main-container {
+a {
+  color: var(--main-text-color);
+}
+
+a.primary {
+  color: var(--primary-color);
+}
+
+a.no-underline {
+  text-decoration: none;
+}
+
+.main-container,
+.secondary-container {
   margin-top: var(--margin-top);
   background-color: #fff;
   border-radius: var(--border-radius);
   padding: var(--padding);
   min-height: 200px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.secondary-container {
+  margin-top: 0;
+}
+
+
+.color-primary {
+  color: var(--primary-color);
 }
 
 /*FORMS*/
@@ -100,6 +124,10 @@ body {
 
 .pull-right {
   float: right;
+}
+
+.img-rounded {
+  border-radius: 50%;
 }
 
 /*Loading */

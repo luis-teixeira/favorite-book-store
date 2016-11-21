@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BookService} from "../services/book.service";
 import {FilterListGenreByPipe} from "../pipes/filter-list-genre-by.pipe";
+import {Book} from "../book";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-books-list',
@@ -10,7 +12,7 @@ import {FilterListGenreByPipe} from "../pipes/filter-list-genre-by.pipe";
 export class BooksListComponent implements OnInit {
   private books:any;
   private filteredCount: Object = {count: -1};
-
+  private loading: boolean = true;
 
   private listCategories: Array<string>;
   private listGenre: Array<string>;
@@ -22,7 +24,8 @@ export class BooksListComponent implements OnInit {
   private searchInAllBook: Boolean = true;
 
   constructor( private bookService: BookService,
-               private filterListGenderBy:FilterListGenreByPipe
+               private filterListGenderBy:FilterListGenreByPipe,
+               private router: Router
   ) { }
 
   /**
@@ -56,6 +59,14 @@ export class BooksListComponent implements OnInit {
   onChangedLibrarySearch(bool){
     this.searchInAllBook = bool;
   }
+
+  /**
+   * Navigate to Book Detail
+   * @param book
+   */
+  onSelect(book: Book) {
+    this.router.navigate(['/book', book.id]);
+  }
   /**
   * Just for this demo, to generate a random number to fill the book images
   */
@@ -69,6 +80,7 @@ export class BooksListComponent implements OnInit {
         this.books = books;
         this.listCategories = this.filterListGenderBy.transform(this.books, 'category');
         this.listGenre = this.filterListGenderBy.transform(this.books, 'name');
+        this.loading = false;
       });
   }
 

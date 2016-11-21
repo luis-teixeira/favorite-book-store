@@ -9,10 +9,8 @@ import {BookService} from "./services/book.service";
 export class BooksComponent implements OnInit {
   title = 'welcome to yours favorite book Publisher';
 
-  constructor(private bookService: BookService) { }
+  constructor() { }
 
-  ngOnInit() {
-//    this.bookService.getBooks().subscribe(books => console.log(books))/**/*/
-  }
+  ngOnInit() {}
 
 }
