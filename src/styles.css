@@ -47,12 +47,16 @@ a.no-underline {
 .main-container,
 .secondary-container {
   margin-top: var(--margin-top);
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #fff;
   border-radius: var(--border-radius);
   padding: var(--padding);
   min-height: 200px;
   position: relative;
-  margin-bottom: 20px;
+  max-width: 1024px;
+
 }
 
 .secondary-container {
@@ -66,12 +70,15 @@ a.no-underline {
 
 /*FORMS*/
 .select-styled {
-  padding: var(--padding);
+  line-height: 34px;
+  text-indent: 10px;
+  /* padding: 20px; padding doesn't work in selector on mobile devices  - Webkit has taken it upon itself to disallow padding */
   border: 1px solid #e6e6e6;
   font-size: 16px;
   height: 34px;
   width: 100%;
   background-color: #fff;
+
 
 }
 
@@ -79,27 +86,34 @@ a.no-underline {
   position: relative;
 }
 
+.input-group {
+  position: relative;
+}
+
 .input-text-styled {
   font-family: var(--main-font-family);
-
   border: 1px solid #e6e6e6;
   font-size: 16px;
-  height: 30px;
+  height: 34px;
   width: 100%;
   background-color: #fff;
   padding: 0 10px;
   border-radius: var(--border-radius);
   position: relative;
-
+  box-sizing: border-box;
 }
 .input-ico-right {
   font-family: var(--main-font-family);
-
   position: absolute;
   width: 16px;
   height: 16px;
   top: 7px;
-  right: -10px;
+  right: 10px;
+}
+
+.label.block {
+  margin-bottom: 10px;
+  display: block;
 }
 
 
@@ -128,6 +142,12 @@ a.no-underline {
 
 .img-rounded {
   border-radius: 50%;
+}
+
+@media screen and (min-width: 1024px) {
+  .is-hidden-md {
+    display: none !important;
+  }
 }
 
 /*Loading */
