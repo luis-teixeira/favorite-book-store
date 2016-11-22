@@ -1,0 +1,19 @@
+
+<div class="box book-list--card" (click)="onSelect(book)">
+  <div class="info-box">
+    <div class="img-holder" [ngStyle]="{ 'background-image': 'url('+ book.cover +'?v='+random()+')'}"></div>
+    <h3>
+      {{book.name}}<br>
+      <small class="color-primary">by {{book.author['name']}}</small>
+    </h3>
+    <div class="clearfix">
+      <div class="likes pull-left">
+        <img src="assets/like.svg" alt="" width="16px" height="16px"> {{book.likes}}
+      </div>
+
+      <div class="likes pull-right">
+        {{book.published | filterDateMoment:'from'}}
+      </div>
+    </div>
+  </div>
+</div>

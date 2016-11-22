@@ -60,19 +60,6 @@ export class BooksListComponent implements OnInit {
     this.searchInAllBook = bool;
   }
 
-  /**
-   * Navigate to Book Detail
-   * @param book
-   */
-  onSelect(book: Book) {
-    this.router.navigate(['/book', book.id]);
-  }
-  /**
-  * Just for this demo, to generate a random number to fill the book images
-  */
-  random() {
-    return Math.random();
-  }
 
   ngOnInit() {
     this.bookService.getBooks().subscribe(

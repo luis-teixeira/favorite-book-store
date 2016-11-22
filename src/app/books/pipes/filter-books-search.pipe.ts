@@ -6,22 +6,23 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterBooksSearchPipe implements PipeTransform {
 
   /**
-   * Adds two Arrays
+   *
    * @param {Array} books - represents concated arrays on pipe filter
-   * @param {Array} allBooks - represents all books array without filter
-   * @param {String} query - represents a string to be found in a bookarray
-   * @param {Boolean} all - true to use allbooks<Array>, false to use books<Array>
+   * @param {Object} args - represents information Object to the filter
+   * @param {Array} args.books - represents all books in a before any filter applied
+   * @param {String} args.queryBooks - represents a string to be found by the filter in a books Array
+   * @param {Boolean} args.searchInAllBook - true to use args['books']<Array>, false to use books<Array>
    * return {array} books - Return the book<Array> filtered
    */
-  transform(books: Array<any>, allBooks?: Array<any>, query?: string, all?: boolean): any {
+  transform(books: Array<any>, args?: Object): any {
 
-    if (!allBooks) return [];
-    if(query === '') return books;
+    if (!args['books']) return [];
+    if(args['queryBooks'] === '') return books;
 
-    const lowerQuery = query.toLocaleLowerCase();
+    const lowerQuery = args['queryBooks'].toLocaleLowerCase();
 
-    return all
-      ? allBooks.filter( b => b.name.toLowerCase().indexOf(lowerQuery) != -1 || b.author['name'].toLowerCase().indexOf(lowerQuery) != -1)
+    return args['searchInAllBook']
+      ? args['books'].filter( b => b.name.toLowerCase().indexOf(lowerQuery) != -1 || b.author['name'].toLowerCase().indexOf(lowerQuery) != -1)
       : books.filter( b => b.name.toLowerCase().indexOf(lowerQuery) != -1 || b.author['name'].toLowerCase().indexOf(lowerQuery) != -1);
   }
 

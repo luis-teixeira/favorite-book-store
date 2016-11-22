@@ -14,6 +14,7 @@ import { BookFilterBarComponent } from './book-filter-bar/book-filter-bar.compon
 import { FilterListGenreByPipe } from './pipes/filter-list-genre-by.pipe';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { FilterDateMomentPipe } from './pipes/filter-date-moment.pipe';
+import { BookCardComponent } from './book-card/book-card.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { FilterDateMomentPipe } from './pipes/filter-date-moment.pipe';
   declarations: [
     BooksComponent,
     BooksListComponent,
+    BookCardComponent,
     BookFilterBarComponent,
     FilterBooksCategoryPipe,
     FilterBooksGenrePipe,
